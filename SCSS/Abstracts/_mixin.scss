@@ -1,0 +1,28 @@
+@mixin flexPosition ($justCont: center, $alignIte: center) {
+    display: flex;
+    justify-content: $justCont;
+    align-items: $alignIte;
+}
+
+@mixin response($breakPoint) {
+    @if ($breakPoint == xl) {
+        @media (max-width: 1200px) {
+            @content;
+        }
+    }
+    @if ($breakPoint == lg) {
+        @media (max-width: 1000px) {
+            @content;
+        }
+    }
+    @if ($breakPoint == md) {
+        @media (max-width: 760px) {
+            @content;
+        }
+    }
+    @if ($breakPoint == sm) {
+        @media (max-width: 560px) {
+            @content;
+        }
+    }
+}

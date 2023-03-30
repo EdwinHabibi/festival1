@@ -1,0 +1,107 @@
+// Burger Menu
+
+.navbar {
+    position: relative;
+    z-index: 200;
+    position: fixed;
+
+
+    .menu {
+        @include flexPosition;
+        right: 10%;
+        transition: all 0.3s ease;
+
+
+    
+        li {
+          margin: 0 0.5rem;
+    
+          a {
+            color: #fff;
+            font-size: 1.2rem;
+          }
+        }
+      }
+
+    .burger-menu {
+        z-index: 5000;
+        position: absolute;
+        
+        label.menu {
+            height: 10px;
+            flex-direction: column;
+            row-gap: 4px;
+            position: fixed;
+    
+            .menu-line-1 {
+                background-color: white;
+                width: 20px;
+                height: 3px;
+            }
+    
+            .menu-line-2 {
+                background-color: white;
+                width: 20px;
+                height: 3px;
+            }
+            
+            .menu-line-3 {
+                background-color: white;
+                width: 20px;
+                height: 3px;
+            }
+        }
+    }
+
+    .navigation {
+        display: flex;
+        left: -250%;
+        position: absolute;
+        transition: left 0.3s ease-in-out;
+        background-color: $tertiary-color;
+        
+        .nav-list {
+            height: 100vh;
+
+            .link {
+                font-size: 50px;
+                text-decoration: none;
+                display: block;
+                margin: 20px;
+                text-align: center;
+                transition: all 0.5s ease;
+                color: #fff;
+                padding-right: 5vw;
+
+                &:hover {
+                    color: $primary-color;
+                    letter-spacing: 4px;
+                }
+            }
+        }
+    }
+}
+
+.checkbox:checked ~ .navigation {
+    left: -10%;
+    transition: left 0.3s ease;
+}
+
+.burger-menu {
+    display: block;
+}
+
+.checkbox:checked ~ .burger-menu .menu-line-1 {
+    transform: rotateZ(-40deg);
+    transition: transform 0.3s ease;
+}
+
+.checkbox:checked ~ .burger-menu .menu-line-2 {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.checkbox:checked ~ .burger-menu .menu-line-3 {
+    transform: rotateZ(40deg);
+    transition: transform 0.3s ease;
+}

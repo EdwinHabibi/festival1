@@ -1,0 +1,79 @@
+section.products {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: $gradient-color;
+
+}
+
+.slider {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+
+    .slider-items {
+      width: 600%;
+      position: relative;
+      left: 0;
+      transition: all 0.3s ease;
+
+      .slider-item {
+        @include flexPosition;
+        flex-direction: column;
+        row-gap: 1rem;
+        height: 410px;
+        float: left;
+        width: 16.6667%;
+        img {
+          max-width: 80%;
+          max-height: 75%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      cursor: pointer;
+      z-index: 2;
+
+    }
+    .prev {
+      left: 0;
+    }
+
+    .next {
+        right: 0;
+    }
+
+    .slider-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        background-color: #333;
+        height: 10vh;
+        width: 100%;
+
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgb(248, 242, 242);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+
+            .active {
+                background-color: rgb(17, 16, 16);
+              }
+          }  
+      }
+  }
